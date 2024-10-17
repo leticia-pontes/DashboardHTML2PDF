@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Detalhes da Conversão</h1>
+    @if (Model.Conversao != null)
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Nome do Arquivo</th>
+                    <th style="width: 25%;">Data da Conversão</th>
+                    <th style="width: 25%;">Tempo de Execução (s)</th>
+                    <th style="width: 25%;">Uso de Memória (bytes)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Conversao.FileName</td>
+                    <td>@Model.Conversao.ConversionDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@Model.Conversao.ExecutionTime</td>
+                    <td>@Model.Conversao.MemoryUsage</td>
+                </tr>
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>Nenhum dado disponível.</p>
+    }
+</body>
+</html>
